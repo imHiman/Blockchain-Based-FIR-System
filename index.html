@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>FIR</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="js/web3/dist/web3.min.js"></script>
+    <script type="text/javascript" src="js/web3-config.js"></script>
+    <script>
+      //-------------Get Address--------------
+async function wallet() {
+let defaultAccount=0;
+
+defaultAccount = await web3.eth.getAccounts()
+    .then(
+        accounts => accounts[0]
+        );
+
+const address_data =  Promise.resolve(defaultAccount);
+ address_data.then(value => {
+
+  if(value!=undefined)
+  {
+     console.log(value);
+     setCookie("address", value, 365);
+     document.getElementById("wallet_address").innerHTML =value;
+  }
+  else{
+    console.log("Please Connect to Wallet and Refresh");
+    document.getElementById("address").innerHTML = "Please Connect to Wallet and Refresh.";
+  }
+
+}).catch(err => {
+ 
+});
+
+}
+
+wallet();
+//-------------Get Address--------------
+    </script>
+    
+
+<!-- ************** Jquery active link styling *******************  -->
+
+    <style media="screen">
+      .active{
+
+        border-bottom: 1.5px solid white;
+        border-radius: 5%;
+      }
+    </style>
+
+
+    <script type="application/javascript">
+    $(document).ready(function(){
+      $('a').click(function(){
+        $('a').removeClass("active");
+        $(this).addClass("active");
+      });
+
+    });
+
+    </script>
+    
+        <script type="text/javascript">
+      function yscroll(){
+        var image = document.getElementById('image');
+        var headr = document.getElementById('topheader');
+        var hd = document.querySelector("h1");
+        var h = document.getElementById('h');
+        var g =document.getElementById('g');
+        ypos=window.pageYOffset;
+        if (ypos>499) {
+          image.style.display="none";
+          headr.style.height="85px";
+           h.id='g';
+        } else if(ypos<=500) {
+          image.style.display="block";
+          headr.style.height='auto';
+          g.id='h';
+
+        }
+
+      }
+      window.addEventListener("scroll",yscroll);
+
+    </script>
+
+    
+
+<!-- ****************** file linking *************************************-->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="homestyle.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <!-- ****************** complete header *************************************-->
+
+<div class="sticky-top">
+  <!-- ****************** top header section *************************************-->
+
+<section id="topheader">
+      <div class="container">
+        <div class="row">
+        <header id="headr">
+          <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1" >
+            <img id="image" src="img/thinksprout.png" alt="" class="" width="110px" height="70px">
+              </div>
+              <div class="col-xs-6 col-sm-9 col-md-10 col-lg-11">
+              <h1 id="h" class="text-center heading text-responsive">F.I.R portal, MCOE police</h1><h5 id="wallet_address" class="text-center heading text-responsive">Loading..!!</h5>
+              </div>
+            
+              </header>
+
+
+            </div>
+
+        </div>
+
+</section>
+
+<!-- ****************** navbar section *************************************-->
+
+<section id="nav-bar">
+
+<div class="container-fluid" >
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand " href="#"></a>
+  <button class="navbar-toggler mr-auto navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class=""><i class="fas fa-bars fa-1x" style="color:#f7f8f3;"></i></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav ml-auto mr-auto">
+      <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="reg_police.html">Onboard Police</a>
+      <a class="nav-item nav-link" href="lodge.html">Lodge Complaint</a>
+      <a class="nav-item nav-link" href="view.html">View Complaint</a>
+      <a class="nav-item nav-link" href="police-kyc.html">Police KYC</a>
+    </div>
+  </div>
+</nav>
+</div>
+
+</section>
+
+</div>
+
+<!-- ****************** header completed *************************************-->
+
+
+<!-- ****************** modal login  *************************************-->
+
+<div class="modal fade" id="modal_login">
+
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <span style="font-size:0.975em !important;"><b>Note: Admin Login </b>Strictly for Departmental Use <font color="red">*</font></span>
+      <button type="button" class="close float-right" name="button" data-dismiss="modal">&times;</button>
+  </div>
+      <div class="modal-body">
+        <div class="text-center">
+        <img src="img/user.png" class="img-circle" style="width:100px; height:100px;" alt="">
+        <p>Please identify yourself</p>
+      </div>
+
+        <form class="" action="" method="post">
+          <div class=""  style="padding:3% 7% !important;">
+
+          <div class="form-group row mr-auto ml-auto">
+            <label for="username" class="col-sm-1 col-form-label col-form-label"> <i class="fa fa-user fa-2x" style="margin-left: 3% !important;color:#281859 !important;"></i></label>
+            <div class="col-sm-11">
+
+             <input type="text" maxlength="20" placeholder="Username" name="" value="" style="color:#281859 !important; background-color: #D4EAFC !important; border: 1.5px solid #c1c1c1 !important; margin-left:3%; width:95% !important;" class="form-control" >
+           </div>
+
+          </div>
+
+          <div class="form-group row mr-auto ml-auto">
+            <label for="password" class="col-sm-1 col-form-label col-form-label"> <i class="fa fa-lock fa-2x" style="margin-left: 3% !important;color:#281859 !important;"></i></label>
+            <div class="col-sm-11">
+
+
+            <input type="password" maxlength="10" placeholder="Password" name="" value="" class="form-control" style="color:#281859 !important; background-color: #D4EAFC !important; border: 1.5px solid #c1c1c1 !important; margin-left:3%; width:95% !important;">
+
+            </div>
+          </div>
+
+          <div id="hovr" class="form-group col-xs-12" style="text-align:right; margin-right:1.5%;">
+          <button type="submit" class="btn" name="button" class="float-right"><a href="police_view.html" style="text-decoration: none; color: white;">Login</a></button>
+            </div>
+
+
+          <div class="" style=" padding:0 7% 0 15%; justify-content:none !important;">
+
+              <div class="row">
+                <div class="col-xs-12 mr-auto" style="justify-content:flex-start !important; float:left !important;">
+                    <a href="#" class="" style="font-size: 1.25em; color:#281859 !important;">Register</a>
+                </div>
+
+              <div class="col-xs-12" style="justify-content:flex-end !important; float:right !important;">
+                <a href="#" class="" style="font-size: 1.25em; color:#281859 !important;">Forgot Password</a>
+              </div>
+
+              </div>
+
+          </div>
+          </div>
+
+        </form>
+
+      </div>
+
+
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ****************** modal completed *************************************-->
+
+
+
+
+<!--******************* Carousel slides begin *******************************-->
+
+<div class="container-fluid border-bottom" id="slide-border">
+<!--****************** slider starts ****************************************-->
+<div class="carousel slide" id="myslider" data-ride="carousel">
+
+  <div class="carousel-inner" id="slides">
+
+<!--****************** carousel images ****************************************-->
+<div class="carousel-item active">
+  <img src="img/flagc.jpg" alt="acp">
+  <div class="carousel-caption">
+    <h1>MCOE Police</h1>
+    <h2>Online F.I.R System</h2>
+    <h3>Secured using blockchain <br> Transparent, Decentralised and Immutable.</h3>
+  </div>
+</div>
+
+    <div class="carousel-item">
+      <img src="img/100.jpg" alt="acp">
+      <div class="carousel-caption">
+        <h1>MCOE Police-Suggestions</h1>
+
+      </div>
+    </div>
+
+  </div>
+
+<!--****************** carousel indicators ************************************-->
+  <ol class="carousel-indicators">
+    <li data-target="#myslider" data-slide-to="0" class="active"></li>
+    <!-- <li data-target="#myslider" data-slide-to="1" class=""></li> -->
+    <li data-target="#myslider" data-slide-to="2" class=""></li>
+
+  </ol>
+<!--****************** carousel controls **************************************-->
+
+<a href="#myslider" data-slide="prev" class="carousel-control-prev">
+  <span class="carousel-control-prev-icon"></span>
+</a>
+
+<a href="#myslider" data-slide="next" class="carousel-control-next">
+  <span class="carousel-control-next-icon"></span>
+</a>
+
+ </div>
+
+</div>
+
+<!---**************    carousel completed     *******************************-->
+<!---**************    about section          *******************************-->
+
+<section id="mid">
+<div class="row align-items-center">
+  <div class="col-xs-6 col-sm-8 col-md-9 col-lg-9">
+
+    <section id="about" class="border">
+    <h1 class="display-2" style="font-size:200%">Welcome to FIR System Based on Blockchain</h1>
+    <hr style="font-size:5em; margin-bottom:5%;">
+
+    <p class="lead" style="">This system is developed under Thinksprout Infotech, Pune. It is a blockchain based system which handles complaints dropped by citizens and is further verified by police and then FIR is lodged.
+<br><br> This system is a humble try to get together people and police.
+Responsibility of protection and safety of the police data is prime responsibility of this system.
+</p>
+<span id="span">for more assistance call <strong>000</strong> </span>
+</section>
+
+</div>
+
+  <!--***************   Suggestions form      **************************-->
+
+
+  <section id="contact" class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+<h1 style="text-shadow: 0px 1px 1px #c1c1c1;" class="h1 text-center">Contact Us</h1>
+<hr>
+<br>
+
+    <form id="hovr">
+  <div class="form-group">
+    <label style="text-shadow: 0px 1px 1px #c1c1c1;" for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label style="text-shadow: 0px 1px 1px #c1c1c1;" for="formGroupExampleInput">Subject</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter the Matter of Concern">
+  </div>
+
+  <div  class="form-group">
+      <label style="text-shadow: 0px 1px 1px #c1c1c1;" for="exampleFormControlTextarea1">Suggestions</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Enter your Suggestions here"></textarea>
+    </div>
+
+
+  <button type="submit" class="btn float-right">Send</button>
+</form>
+
+</section>
+
+</div>
+
+
+</section>
+
+  <!--***************   Suggestions form      **************************-->
+
+
+
+<footer>
+  <div class="container-fluid">
+
+
+<section id="foot">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+<p class="text-center"> <br> &copyCOPYRIGHT 2022 THINKSPROUT VENTURES LLP - ALL RIGHTS RESERVED <br></p>
+</div>
+
+</div>
+</section>
+
+</div>
+</footer>
+  </body>
+</html>

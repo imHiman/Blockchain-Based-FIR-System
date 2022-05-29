@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>FIR</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="js/web3/dist/web3.min.js"></script>
+    <script type="text/javascript" src="js/web3-config.js"></script>
+    <script type="text/javascript" src="./artifacts/fir.js"></script>
+    <script>
+      //-------------Get Address--------------
+async function wallet() {
+let defaultAccount=0;
+
+defaultAccount = await web3.eth.getAccounts()
+    .then(
+        accounts => accounts[0]
+        );
+
+const address_data =  Promise.resolve(defaultAccount);
+ address_data.then(value => {
+
+  if(value!=undefined)
+  {
+     console.log(value);
+     setCookie("address", value, 365);
+     document.getElementById("wallet_address").innerHTML =value;
+     
+  }
+  else{
+    console.log("Please Connect to Wallet and Refresh");
+    document.getElementById("address").innerHTML = "Please Connect to Wallet and Refresh.";
+  }
+
+}).catch(err => {
+ 
+});
+
+}
+
+wallet();
+//-------------Get Address--------------
+    </script>
+    
+
+<!-- ************** Jquery active link styling *******************  -->
+
+    <style media="screen">
+/*------------------- LOADER ---------------------*/
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #00218d;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*------------------- LOADER ---------------------*/
+
+      .active{
+
+        border-bottom: 1.5px solid white;
+        border-radius: 5%;
+      }
+
+      button{
+        margin-right: 3.5% !important;
+        color: #f7f8f3 !important;
+      background-color: #281859 !important;
+      }
+
+    </style>
+
+
+    <script type="application/javascript">
+    $(document).ready(function(){
+      $('a').click(function(){
+        $('a').removeClass("active");
+        $(this).addClass("active");
+      });
+
+    });
+
+    </script>
+    
+    
+        <script type="text/javascript">
+      function yscroll(){
+        var image = document.getElementById('image');
+        var headr = document.getElementById('topheader');
+        var hd = document.querySelector("h1");
+        var h = document.getElementById('h');
+        var g =document.getElementById('g');
+        ypos=window.pageYOffset;
+        if (ypos>120) {
+          image.style.display="none";
+          headr.style.height="85px";
+           h.id='g';
+        } else if(ypos<=119) {
+          image.style.display="block";
+          headr.style.height='auto';
+          g.id='h';
+
+        }
+
+      }
+      window.addEventListener("scroll",yscroll);
+
+    </script>
+
+
+<!-- ****************** file linking *************************************-->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="lodgestyle.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <!-- ****************** complete header *************************************-->
+
+<div class="sticky-top">
+  <!-- ****************** top header section *************************************-->
+
+<section id="topheader">
+      <div class="container">
+        <div class="row">
+        <header id="headr">
+          <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1" >
+            <img id="image" src="img/thinksprout.png" alt="" class="" width="110px" height="70px">
+              </div>
+              <div class="col-xs-6 col-sm-9 col-md-10 col-lg-11">
+                <h1 id="h" class="text-center heading text-responsive">F.I.R portal, MCOE police</h1><h5 id="wallet_address" class="text-center heading text-responsive">Loading..!!</h5>
+              </div>
+              </header>
+
+
+            </div>
+
+        </div>
+
+</section>
+
+<!-- ****************** navbar section *************************************-->
+
+<section id="nav-bar">
+
+<div class="container-fluid" >
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand " href="#"></a>
+  <button class="navbar-toggler mr-auto navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class=""><i class="fas fa-bars fa-1x" style="color:#f7f8f3;"></i></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav ml-auto mr-auto">
+      <a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="reg_police.html">Onboard Police</a>
+      <a class="nav-item nav-link" href="lodge.html">Lodge Complaint</a>
+      <a class="nav-item nav-link active" href="view.html">View Complaint</a>
+      <a class="nav-item nav-link" href="police-kyc.html">Police KYC</a>
+    </div>
+  </div>
+</nav>
+
+</div>
+</section>
+
+</div>
+
+<div class="modal fade" id="model_loader">
+
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+  
+      <div class="modal-header">
+       
+    </div>
+        <div class="modal-body">
+          <div class="text-center" id="confirm">
+          <img src="img/check.png" class="img-circle" style="width:100px; height:100px;" alt="">
+          <p>Transaction Successful</p>
+        </div>
+        <div class="text-center" id="reject">
+          <img src="img/cancel.png" class="img-circle" style="width:100px; height:100px;" alt="">
+          <p>Transaction Failed</p>
+        </div>
+  <center>
+        <div class="loader" id="preloader"></div>
+      </center>
+        </div>
+  
+  
+  
+    </div>
+  
+  </div>
+  
+  </div>
+
+<div class="container border">
+
+<div class="">
+<form class="" action="" method="post">
+
+  <table class="table">
+
+    <colgroup>
+    		<col class="one"/>
+    		<col class="two"/>
+    		<col class="three"/>
+    		<col class="four"/>
+    	</colgroup>
+
+    <thead>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <tr align="left" class="titles h5" height="30">
+          <th colspan="4" style="color: #281859;">View Complaints</th>
+        </tr>
+        </div>
+    </div>
+        <!--  ********************************* row 1 validation ********************************************-->
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <tr>
+
+         <td colspan="4" align="left" style="color: #281859;padding:2% 1.3%;font-size: 1.25em;font-weight: normal;">
+        <font style="margin-bottom:2%;" color="red">Please Enter The Reference ID</font><br>
+        <b>Note:</b> Parameters marked with a <font color="red">*</font> are mandatory
+
+       </td>
+
+
+        </td>
+        </tr>
+      </div>
+      </div>
+
+
+    </thead>
+
+    <tbody>
+
+      <!--  ********************************* row 1 District name********************************************-->
+    <div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="FirstComplainantName">Reference ID:
+          <font color="RED">*</font>
+
+        </label>
+      </td>
+    </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan=21"><input placeholder="Reference ID" style=""  type="text" name="ref_id" id="ref_id" style="padding:6px;  border:1px solid #281859;" maxlength="100" value="" class="" onchange="" onblur=""></td>
+    </div>
+    </tr>
+  </div>
+
+
+    <!--  ********************************* row 2 ********************************************-->
+    
+    <!--  ********************************* row 3  ********************************************-->
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+  
+
+    
+
+
+<!--  ********************************* row 7 ********************************************-->
+
+<tr>
+<td colspan="4" align="center">
+  <button type="button" onclick="submit_fir()" name="button">Get Details</button>
+  <button type="reset" value="Reset" name="button">Reset</button></td>
+ 
+</tr>
+
+<div id="submit-data">
+
+
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="name"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="blocktime"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="address"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="gender"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="age"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="contact_number"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="postal_address"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="incident_related_to"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="allot_police_station"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+
+
+
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="fir_description"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="status"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+
+<div class="row">
+  <tr>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="FirstComplainantName" id="remark"></label>
+    </td>
+    
+  </div>
+  
+  </tr>
+</div>
+
+
+
+
+</div>
+
+
+        </tbody>
+
+  </table>
+  
+  <h7 id="ref_id" class="text-center heading text-responsive"></h7>
+</form>
+
+
+
+<div class="container border">
+
+<div class="" id="only_police">
+<form class="" action="" method="post">
+
+  <table class="table">
+
+    <colgroup>
+    		<col class="one"/>
+    		<col class="two"/>
+    		<col class="three"/>
+    		<col class="four"/>
+    	</colgroup>
+
+    <thead>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <tr align="left" class="titles h5" height="30">
+          <th colspan="4" style="color: #281859;">Update Status</th>
+        </tr>
+        </div>
+    </div>
+        <!--  ********************************* row 1 validation ********************************************-->
+
+
+
+
+    </thead>
+
+    <tbody>
+
+      <!--  ********************************* row 1 District name********************************************-->
+    <div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="FirstComplainantName">Reference ID
+          <font color="RED">*</font>
+
+        </label>
+      </td>
+    </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="3"><input placeholder="Reference ID" style=""  type="text" name="ref_id_update" id="ref_id_update" style="padding:6px;  border:1px solid #281859;" maxlength="100" value="" class="" onchange="" onblur="" readonly></td>
+    </div>
+    </tr>
+  </div>
+
+
+  </tr>
+
+</div>
+
+
+
+
+
+<div id="" class="row">
+
+      <tr >
+
+        <!--  ********************************* row 8 col 1  District name********************************************-->
+<!--  ********************************* row 8 col 3 police station name********************************************-->
+
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<td colspan="1">
+  <label for="PoStationName">Status
+    <font color="RED">*</font>
+    </label>
+</td>
+
+
+
+  <!--  ********************************* row 8 col 4 input police station name********************************************-->
+
+  <td colspan="1">
+      <select id="stn_id" style="" size="1" name="status" type="select-one">
+  <option value="Viewed">Viewed</option>
+  <option value="Pending">Pending</option>
+  <option value="Processing">Processing</option>
+  <option value="Completed">Completed</option>
+</select>
+  </td>
+
+</div>
+    </tr>
+
+
+
+
+  </div>
+
+
+
+
+    
+
+
+      <tr>
+
+          <!--  ********************************* row 11 col 1 ********************************************-->
+          <td colspan="1" class=""><label for="place">Remark
+            <font color="RED">*</font>
+
+            </label>
+            </td>
+            <!--  ********************************* row 11 col 2 ********************************************-->
+
+
+          <td colspan="1">
+            <textarea id="remark_data" class="form-control" rows="6" cols="" style="width:175%; padding:6px;border:1px solid #281859;" placeholder="Enter the Detailed Remarks"></textarea>
+
+    </tr>
+
+  
+
+    
+
+
+<!--  ********************************* row 7 ********************************************-->
+
+<tr>
+<td colspan="4" align="center">
+  <button type="button" onclick="update_fir()" name="button" data-target="#model_loader" data-toggle="modal">Update FIR</button>
+  <button type="reset" value="Reset" name="button">Reset</button></td>
+ 
+</tr>
+
+
+
+
+
+        </tbody>
+
+  </table>
+  
+  <h7 id="ref_id" class="text-center heading text-responsive"></h7>
+</form>
+</div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="container-fluid">
+
+
+<section id="foot">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+<p class="text-center"> <br> &copyCOPYRIGHT 2022 THINKSPROUT VENTURES LLP - ALL RIGHTS RESERVED <br></p>
+</div>
+
+</div>
+</section>
+
+</div>
+</footer>
+
+<script>
+var only_police = document.getElementById("only_police");
+only_police.style.display = "none";
+
+async function submit_fir()
+{
+
+  const fir = new web3.eth.Contract(firAbi, firAddress);
+
+  
+
+  var _address = getCookie("address");
+  var fir_id = document.getElementById("ref_id").value;
+
+  fir.methods.getFirDetails(fir_id).call({
+                from: _address,
+             
+            })
+            .then(
+                (data1)=>{
+                  console.log(data1);
+                  document.getElementById("ref_id_update").value = fir_id;
+              document.getElementById("name").innerHTML = "Name: "+data1[1];
+              document.getElementById("gender").innerHTML = "Gender: "+data1[2];
+              document.getElementById("age").innerHTML = "Age: "+data1[3];
+              document.getElementById("address").innerHTML = "Address: "+data1[0];
+              document.getElementById("contact_number").innerHTML = "Contact Number: "+data1[4];
+              document.getElementById("postal_address").innerHTML = "Postal Address: "+data1[5];
+              document.getElementById("fir_description").innerHTML = "FIR Details: "+data1[6];
+            }
+            );	
+                
+    
+
+            fir.methods.getFirTime(fir_id).call({
+                from: _address,
+             
+            })
+            .then(
+                (data1)=>{
+                
+                  var date_time = new Date(data1*1000);
+                 
+                  document.getElementById("blocktime").innerHTML = "Date/Time "+date_time.toLocaleString();
+                }
+            );
+
+
+
+
+            fir.methods.getPoliceDetails(_address).call({
+                from: _address,
+             
+            })
+            .then(
+                (data1)=>{
+                
+                 if(data1[4]==true)
+                 {
+                  only_police.style.display = "block";
+                 }
+
+                }
+            );
+
+
+
+
+            fir.methods.getFirStatusRemark(fir_id).call({
+                from: _address,
+             
+            })
+            .then(
+                (data1)=>{
+                
+                document.getElementById("incident_related_to").innerHTML = "Subject: "+data1[0];
+                document.getElementById("allot_police_station").innerHTML = "Police Station: "+data1[1];
+                if(data1[2]=="")
+                  {
+                    document.getElementById("status").innerHTML = "Status: None";
+                  }
+                  else{
+                    document.getElementById("status").innerHTML = "Status: "+data1[2];
+                  }
+
+
+                  if(data1[3]=="")
+                  {
+                    document.getElementById("remark").innerHTML = "Remark: None";
+                  }
+                  else{
+                    document.getElementById("remark").innerHTML = "Remark: "+data1[3];
+                  }
+                
+                
+                
+                }
+            );
+}
+
+
+
+
+
+
+
+
+async function update_fir()
+{
+
+  const fir = new web3.eth.Contract(firAbi, firAddress);
+
+
+
+  var _address = getCookie("address");
+
+  var reject = document.getElementById("reject");
+   var confirm = document.getElementById("confirm");
+   var preloader = document.getElementById("preloader");
+   confirm.style.display = "none";
+   reject.style.display = "none";
+
+
+   var fir_id = document.getElementById("ref_id").value;
+   var status = document.getElementById("stn_id").value;
+   var remark_data = document.getElementById("remark_data").value;
+  
+   console.log(fir_id,status,remark_data);
+
+
+   const options = {
+        from: _address,
+    };
+
+    fir
+        .methods.updateStatus(fir_id, remark_data, status).send(options)
+        .on("receipt",
+            function (receipt) {
+                
+            
+               
+                preloader.style.display = "none";
+                confirm.style.display = "block";
+              
+                
+                //window.location.reload();
+            })
+            .on("error",
+                    function (error, receipt) {
+                        console.log(error);
+                        preloader.style.display = "none";
+                        reject.style.display = "block";
+                       // window.location.reload();
+                        console.log(error);
+                    }
+            ).then(console.log("Transaction-Capture"));
+
+}
+</script>
+
+  </body>
+</html>

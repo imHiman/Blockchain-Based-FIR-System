@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>POLICE Complaint Validation</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+
+<!-- ************** Jquery active link styling *******************  -->
+
+    <style media="screen">
+
+
+      .active{
+
+        border-bottom: 1.5px solid white;
+        border-radius: 5%;
+      }
+
+      button{
+        margin-right: 3.5% !important;
+        color: #f7f8f3 !important;
+      background-color: #281859 !important;
+      }
+
+    </style>
+
+
+    <script type="application/javascript">
+    $(document).ready(function(){
+      $('a').click(function(){
+        $('a').removeClass("active");
+        $(this).addClass("active");
+      });
+
+    });
+
+    </script>
+    
+    
+        <script type="text/javascript">
+      function yscroll(){
+        var image = document.getElementById('image');
+        var headr = document.getElementById('topheader');
+        var hd = document.querySelector("h1");
+        var h = document.getElementById('h');
+        var g =document.getElementById('g');
+        ypos=window.pageYOffset;
+        if (ypos>120) {
+          image.style.display="none";
+          headr.style.height="85px";
+           h.id='g';
+        } else if(ypos<=119) {
+          image.style.display="block";
+          headr.style.height='auto';
+          g.id='h';
+
+        }
+
+      }
+      window.addEventListener("scroll",yscroll);
+
+    </script>
+
+
+<!-- ****************** file linking *************************************-->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="lodgestyle.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <!-- ****************** complete header *************************************-->
+
+<div class="sticky-top">
+  <!-- ****************** top header section *************************************-->
+
+<section id="topheader">
+    <div class="container">
+        <div class="row">
+        <header id="headr">
+          <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1" >
+            <img id="image" src="img/thinksprout.png" alt="" class="" width="110px" height=70px">
+              </div>
+              <div class="col-xs-6 col-sm-9 col-md-10 col-lg-11">
+              <h1 id="h" class="text-center heading text-responsive">F.I.R portal, MCOE police</h1>
+              </div>
+              </header>
+
+
+            </div>
+
+        </div>
+
+</section>
+
+<!-- ****************** navbar section *************************************-->
+
+<section id="nav-bar">
+
+<div class="container-fluid" >
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand " href="#"></a>
+  <button class="navbar-toggler mr-auto navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class=""><i class="fas fa-bars fa-1x" style="color:#f7f8f3;"></i></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav ml-auto mr-auto">
+      
+      <a class="nav-item nav-link" href="lodge_fir.html"> Lodge FIR</a>
+      <a class="nav-item nav-link active" href="view_compaint.html">View Complaint</a>
+      <a class="nav-item nav-link" href="index.html">Logout</a>
+    </div>
+  </div>
+</nav>
+
+</div>
+</section>
+
+</div>
+
+<!-- ****************** header completed *************************************-->
+
+<div class="container border">
+
+<div class="">
+<form class="" action="" method="post">
+
+  <table class="table">
+
+    <colgroup>
+    		<col class="one"/>
+    		<col class="two"/>
+    		<col class="three"/>
+    		<col class="four"/>
+    	</colgroup>
+
+    <thead>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <tr align="left" class="titles h5" height="30">
+          <th colspan="4" style="color: #281859;">Validate The Complaint</th>
+        </tr>
+        </div>
+    </div>
+        <!--  ********************************* row 1 validation ********************************************-->
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <tr>
+
+         <td colspan="4" align="left" style="color: #281859;padding:2% 1.3%;font-size: 1.25em;font-weight: normal;">
+        <font style="margin-bottom:2%;" color="red">Please check the complaint to lodge FIR</font><br>
+        <b>Note:</b> Parameters marked with a <font color="red">*</font> are mandatory
+
+       </td>
+
+
+        </td>
+        </tr>
+      </div>
+      </div>
+
+
+    </thead>
+
+    <tbody>
+
+      <!--  ********************************* row 1 District name********************************************-->
+    <div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="FirstComplainantName">First Name of Complainant
+          <font color="RED">*</font>
+
+        </label>
+      </td>
+    </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1"><input placeholder="  Name" style=""  type="text" name="FirstComplainantName" id="FirstComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="Himanshu" class="" onchange="" onblur=""></td>
+    </div>
+    </tr>
+  </div>
+
+
+    <!--  ********************************* row 2 ********************************************-->
+    <div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="MiddleComplainantName">Middle Name of Complainant
+          <font color="RED">*</font>
+
+        </label>
+        </td>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+        <td colspan="1"><input placeholder="  Middle name"style="" type="text" name="MiddleComplainantName" id="MiddleComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="Sanju" class="" onchange="" onblur=""></td>
+      </div>
+      </tr>
+    </div>
+    <!--  ********************************* row 3  ********************************************-->
+
+    <div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="LastComplainantName">Last Name of Complainant
+          <font color="RED">*</font>
+
+        </label>
+        </td>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+        <td colspan="1"><input placeholder="  Surname"style="" type="text" name="LastComplainantName" id="LastComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="Nakhate" class="" onchange="" onblur=""></td>
+
+      </div>
+      </tr>
+    </div>
+
+    <!--  ********************************* new row 4  col 1 gender name********************************************-->
+
+
+<div class="row">
+<tr>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="gender">Gender
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 4 col 2 input gender********************************************-->
+
+      <td colspan="1" style="">
+<fieldset>
+
+    <label for=""><input style="width:auto !important;  padding:0 !important;" type="radio" name="gender" value="male" checked/> Male</label>  <br>
+    <label  for=""><input style="width:auto !important; padding:0 !important;" type="radio" name="gender" value="female"/> Female </label> <br>
+  </fieldset>
+
+    </td>
+
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="age">Age
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 4 col 4 input gender********************************************-->
+
+      <td colspan="1">
+<input type="number" placeholder=" Age" min="18" Max="99" name="age" style="width: 50% !important;" value="22">
+    </td>
+
+    </div>
+
+  </tr>
+
+</div>
+
+
+
+    <!--  ********************************* new row 5  col1 address label********************************************-->
+
+
+<div class="row">
+<tr>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <address class="">
+
+    <td colspan="1">
+      <label for="address">Contact Address
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 5 col 2 input gender********************************************-->
+
+      <td colspan="1">
+
+        <textarea name="address" rows="4" cols="" placeholder="Residential Address" style=""></textarea>
+      </td>
+  </address>
+
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="pin">Pin Code
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 5 col 4 input pin********************************************-->
+
+      <td colspan="1">
+<input type="text" style="" name="pin" value="412201" placeholder="City Pin Code">
+    </td>
+
+    </div>
+
+  </tr>
+
+</div>
+
+
+<div class="row">
+<tr>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="email">Email ID
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 6 col 4 input pin********************************************-->
+
+      <td colspan="1">
+<input type="email" style="" name="email" value="himanshu@xyz.com" placeholder="Email Address">
+    </td>
+
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+    <td colspan="1">
+      <label for="phone">Contact Number
+        <font color="RED">*</font>
+        </label>
+    </td>
+
+      <!--  ********************************* row 6 col 2 input gender********************************************-->
+
+      <td colspan="1">
+
+        <input type="text" name="phone" value="9876543210" maxlength="10" style="" placeholder="Phone Number">
+      </td>
+
+    </div>
+
+
+  </tr>
+
+</div>
+
+
+
+
+
+
+
+<div id="" class="row">
+
+      <tr >
+
+        <div class="row">
+            <tr>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        
+              <td colspan="1">
+                <label for="DistrictCity">District/City
+                  <font color="RED">*</font>
+        
+                </label>
+                </td>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        
+                <td colspan="1"><input placeholder="  Surname"style="" type="text" name="District/City" id="District/City" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="Pune" class="" onchange="" onblur=""></td>
+        
+              </div>
+              </tr>
+            </div>
+
+        </td>
+
+
+          <!--  ********************************* row 8 col 2 input ********************************************-->
+
+          
+</div>
+<!--  ********************************* row 8 col 3 police station name********************************************-->
+<div class="row">
+    <tr>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <td colspan="1">
+        <label for="PoliceStation">Police Station
+          <font color="RED">*</font>
+
+        </label>
+        </td>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+        <td colspan="1"><input placeholder="  Surname"style="" type="text" name="PoliceStation" id="PoliceStation" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="Shivajinagar" class="" onchange="" onblur=""></td>
+
+      </div>
+      </tr>
+    </div>
+<tr>
+
+    <!--  ********************************* row 9 col 1 ********************************************-->
+    <td colspan="1" class=""><label for="place">Place of Occurence
+
+      </label>
+      </td>
+      <!--  ********************************* row 9 col 2 ********************************************-->
+
+
+    <td colspan="1"><input type="text" name="place"  style="" maxlength="20" value="Ghole Road" class="" onchange="" onblur="" placeholder="Area of Incidence"></td>
+
+    </tr>
+
+
+
+    <tr>
+
+        <!--  ********************************* row 10 col 1 ********************************************-->
+        <td colspan="1" class=""><label for="place">Subject of Complaint
+          <font color="RED">*</font>
+
+          </label>
+          </td>
+          <!--  ********************************* row 10 col 2 ********************************************-->
+
+
+        <td colspan="1">
+          <input type="text" name="subject" style="" maxlength="150" value="Lost Item" class="" onchange="" onblur="" placeholder="Enter the type/matter of Complaint"></td>
+
+        </tr>
+
+
+      <tr>
+
+          <!--  ********************************* row 11 col 1 ********************************************-->
+          <td colspan="1" class=""><label for="place">Complaint Detail
+            <font color="RED">*</font>
+
+            </label>
+            </td>
+            <!--  ********************************* row 11 col 2 ********************************************-->
+
+
+          <td colspan="1">
+            <textarea class="form-control" rows="6" cols="" style="width:175%; padding:6px;border:1px solid #281859;" placeholder="Enter the Details of Complaint."></textarea>
+
+    </tr>
+
+    <div class="row">
+        <tr>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    
+          <td colspan="1">
+            <label for="SectionsActs"> Enter Sections and Acts
+              <font color="RED">*</font> 
+    
+            </label>
+            </td>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    
+            <td colspan="1"><input placeholder="Enter Sections and Acts"style="" type="text" name="SectionsActs" id="SectionsActs" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+    
+          </div>
+          </tr>
+        </div>
+
+    <div class="row">
+        <tr>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    
+          <td colspan="1">
+            <label for="Remarks"> Enter Remarks
+              <font color="RED">*</font> 
+    
+            </label>
+            </td>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    
+            <td colspan="1"><input placeholder="Enter Remarks"style="" type="text" name="Remarks" id="Remarks" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+    
+          </div>
+          </tr>
+        </div>
+
+
+<!--  ********************************* row 7 ********************************************-->
+
+<tr>
+<td colspan="4" align="center">
+  <button type="submit" name="button">Lodge FIR</button>
+  <button type="reset" value="" name="button">Reject complaint</button></td>
+</tr>
+
+
+
+
+
+
+        </tbody>
+
+  </table>
+</form>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="container-fluid">
+    <section id="foot">
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        
+        <p class="text-center"> <br> &copyCOPYRIGHT 2022 THINKSPROUT VENTURES LLP - ALL RIGHTS RESERVED <br></p>
+        </div>
+        
+        </div>
+        </section>
+
+</div>
+</footer>
+  </body>
+</html>
