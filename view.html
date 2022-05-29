@@ -689,19 +689,19 @@ async function submit_fir()
                 from: _address,
              
             })
-            .then(
-                (data1)=>{
-                  console.log(data1);
-                  document.getElementById("ref_id_update").value = fir_id;
-              document.getElementById("name").innerHTML = "Name: "+data1[1];
-              document.getElementById("gender").innerHTML = "Gender: "+data1[2];
-              document.getElementById("age").innerHTML = "Age: "+data1[3];
-              document.getElementById("address").innerHTML = "Address: "+data1[0];
-              document.getElementById("contact_number").innerHTML = "Contact Number: "+data1[4];
-              document.getElementById("postal_address").innerHTML = "Postal Address: "+data1[5];
-              document.getElementById("fir_description").innerHTML = "FIR Details: "+data1[6];
-            }
-            );	
+            // .then(
+            //     (data1)=>{
+            //       console.log(data1);
+            //       document.getElementById("ref_id_update").value = fir_id;
+            //   document.getElementById("name").innerHTML = "Name: "+data1[1];
+            //   document.getElementById("gender").innerHTML = "Gender: "+data1[2];
+            //   document.getElementById("age").innerHTML = "Age: "+data1[3];
+            //   document.getElementById("address").innerHTML = "Address: "+data1[0];
+            //   document.getElementById("contact_number").innerHTML = "Contact Number: "+data1[4];
+            //   document.getElementById("postal_address").innerHTML = "Postal Address: "+data1[5];
+            //   document.getElementById("fir_description").innerHTML = "FIR Details: "+data1[6];
+            // }
+            // );	
                 
     
 
